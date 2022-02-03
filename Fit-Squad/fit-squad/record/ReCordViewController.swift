@@ -6,3 +6,9 @@
 //
 
 import Foundation
+
+class RecordViewController: BaseViewController {
+    override func viewDidLoad() {
+        super.viewDidLoad()
+    }
+}
