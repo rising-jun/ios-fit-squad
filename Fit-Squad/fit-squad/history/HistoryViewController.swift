@@ -15,7 +15,7 @@ class HistoryViewController: BaseViewController{
     override func viewDidLoad() {
         super.viewDidLoad()        
         view = v
-        
+        print("commit test")
     }
     
     
