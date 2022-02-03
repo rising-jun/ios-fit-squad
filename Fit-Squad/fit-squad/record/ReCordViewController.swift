@@ -6,15 +6,37 @@
 //
 
 import Foundation
+import UIKit
 
 class RecordViewController: BaseViewController {
     lazy var v = RecordView(frame: view.frame)
     
+    let tableData = ["운동1", "운동2", "운동3"]
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view = v
+        v.routineTableView.dataSource = self
     }
 }
+
+extension RecordViewController: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return tableData.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell: ExercisesCell = v.routineTableView.dequeueReusableCell(withIdentifier: ExercisesCell.identifier, for: indexPath) as! ExercisesCell
+        var config = cell.defaultContentConfiguration()
+        config.text = tableData[indexPath.row]
+        cell.contentConfiguration = config
+        return cell
+    }
+}
+
+
+
+
 
 
 
