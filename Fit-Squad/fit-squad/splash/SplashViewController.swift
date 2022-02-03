@@ -13,8 +13,8 @@ class SplashViewController: BaseViewController{
     
     lazy var v = SplashView(frame: view.frame)
     
-    lazy var vcArray: [BaseViewController] = [HistoryViewController()]
-    lazy var vcTitle: [String] = ["운동기록"]
+    lazy var vcArray: [BaseViewController] = [HistoryViewController(), BaseViewController()]
+    lazy var vcTitle: [String] = ["운동기록", "운동시작"]
     override func viewDidLoad() {
         super.viewDidLoad()
         view = v
@@ -30,7 +30,7 @@ extension SplashViewController{
         DispatchQueue.main.async {
             Timer.scheduledTimer(withTimeInterval: 1.5, repeats: false) { [weak self] timer in
                 guard let self = self else { return }
-                self.present(self.makeTabBarVC(), animated: true, completion: nil)
+                self.present(self.makeNavVC(), animated: true, completion: nil)
             }
         }
     }
@@ -41,9 +41,16 @@ extension SplashViewController{
             tabBarVC.addChild(self.vcArray[i])
             self.vcArray[i].tabBarItem = UITabBarItem(title: self.vcTitle[i], image: UIImage(), tag: i)
         }
+        tabBarVC.tabBar.backgroundColor = .white
         tabBarVC.modalPresentationStyle = .fullScreen
         return tabBarVC
     }
     
+    private func makeNavVC() -> UINavigationController{
+        let nav = UINavigationController()
+        nav.modalPresentationStyle = .fullScreen
+        nav.pushViewController(makeTabBarVC(), animated: true)
+        return nav
+    }
     
 }

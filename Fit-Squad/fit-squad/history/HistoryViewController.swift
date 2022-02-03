@@ -11,11 +11,15 @@ import UIKit
 class HistoryViewController: BaseViewController{
     
     lazy var v = HistoryView(frame: view.frame)
+    private let writeButton = UIBarButtonItem()
     
     override func viewDidLoad() {
         super.viewDidLoad()        
         view = v
-        print("commit test")
+        writeButton.title = "작성하기"
+        self.tabBarController!.navigationItem.setRightBarButton(self.writeButton, animated: false)
+        self.tabBarController!.navigationItem.hidesBackButton = true
+        self.tabBarController?.navigationItem.leftBarButtonItem = self.v.setNavigationBarIconView()
     }
     
     
