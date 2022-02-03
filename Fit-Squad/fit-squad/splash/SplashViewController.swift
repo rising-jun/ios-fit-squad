@@ -13,7 +13,7 @@ class SplashViewController: BaseViewController{
     
     lazy var v = SplashView(frame: view.frame)
     
-    lazy var vcArray: [BaseViewController] = [HistoryViewController(), BaseViewController()]
+    lazy var vcArray: [BaseViewController] = [HistoryViewController(), RecordViewController()]
     lazy var vcTitle: [String] = ["운동기록", "운동시작"]
     override func viewDidLoad() {
         super.viewDidLoad()
