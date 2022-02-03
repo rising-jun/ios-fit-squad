@@ -11,6 +11,9 @@
 		723FA87B27AB6F0100137A2B /* ReCordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 723FA87A27AB6F0100137A2B /* ReCordViewController.swift */; };
 		723FA87D27AB6F0D00137A2B /* RoutineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 723FA87C27AB6F0D00137A2B /* RoutineViewController.swift */; };
 		723FA87F27AB6F1700137A2B /* HistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 723FA87E27AB6F1700137A2B /* HistoryViewController.swift */; };
+		725FB25627ABA832006F4C47 /* HistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 725FB25527ABA832006F4C47 /* HistoryView.swift */; };
+		725FB25927ABA888006F4C47 /* SplashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 725FB25827ABA888006F4C47 /* SplashView.swift */; };
+		725FB25B27ABA8AD006F4C47 /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 725FB25A27ABA8AD006F4C47 /* SplashViewController.swift */; };
 		7279E83A27A79514008E814D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7279E83927A79514008E814D /* AppDelegate.swift */; };
 		7279E83E27A79514008E814D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7279E83D27A79514008E814D /* ViewController.swift */; };
 		7279E84327A79516008E814D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7279E84227A79516008E814D /* Assets.xcassets */; };
@@ -25,6 +28,9 @@
 		723FA87A27AB6F0100137A2B /* ReCordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReCordViewController.swift; sourceTree = "<group>"; };
 		723FA87C27AB6F0D00137A2B /* RoutineViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoutineViewController.swift; sourceTree = "<group>"; };
 		723FA87E27AB6F1700137A2B /* HistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryViewController.swift; sourceTree = "<group>"; };
+		725FB25527ABA832006F4C47 /* HistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryView.swift; sourceTree = "<group>"; };
+		725FB25827ABA888006F4C47 /* SplashView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashView.swift; sourceTree = "<group>"; };
+		725FB25A27ABA8AD006F4C47 /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
 		7279E83627A79514008E814D /* Fit-Squad.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Fit-Squad.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7279E83927A79514008E814D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7279E83D27A79514008E814D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -68,6 +74,7 @@
 		723FA87627AB6EAE00137A2B /* fit-squad */ = {
 			isa = PBXGroup;
 			children = (
+				725FB25727ABA87E006F4C47 /* splash */,
 				723FA87927AB6EE100137A2B /* record */,
 				723FA87827AB6ED200137A2B /* routine */,
 				723FA87727AB6ECA00137A2B /* history */,
@@ -79,6 +86,7 @@
 			isa = PBXGroup;
 			children = (
 				723FA87E27AB6F1700137A2B /* HistoryViewController.swift */,
+				725FB25527ABA832006F4C47 /* HistoryView.swift */,
 			);
 			path = history;
 			sourceTree = "<group>";
@@ -97,6 +105,15 @@
 				723FA87A27AB6F0100137A2B /* ReCordViewController.swift */,
 			);
 			path = record;
+			sourceTree = "<group>";
+		};
+		725FB25727ABA87E006F4C47 /* splash */ = {
+			isa = PBXGroup;
+			children = (
+				725FB25827ABA888006F4C47 /* SplashView.swift */,
+				725FB25A27ABA8AD006F4C47 /* SplashViewController.swift */,
+			);
+			path = splash;
 			sourceTree = "<group>";
 		};
 		7279E82D27A79514008E814D = {
@@ -255,12 +272,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				7279E84F27A7956F008E814D /* BaseView.swift in Sources */,
+				725FB25627ABA832006F4C47 /* HistoryView.swift in Sources */,
 				723FA87D27AB6F0D00137A2B /* RoutineViewController.swift in Sources */,
 				7279E85127A795B2008E814D /* BaseViewController.swift in Sources */,
 				723FA87B27AB6F0100137A2B /* ReCordViewController.swift in Sources */,
 				7279E83E27A79514008E814D /* ViewController.swift in Sources */,
 				723FA87F27AB6F1700137A2B /* HistoryViewController.swift in Sources */,
 				7279E83A27A79514008E814D /* AppDelegate.swift in Sources */,
+				725FB25927ABA888006F4C47 /* SplashView.swift in Sources */,
+				725FB25B27ABA8AD006F4C47 /* SplashViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

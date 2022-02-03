@@ -6,3 +6,17 @@
 //
 
 import Foundation
+import UIKit
+
+class HistoryViewController: BaseViewController{
+    
+    lazy var v = HistoryView(frame: view.frame)
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()        
+        view = v
+        
+    }
+    
+    
+}
