@@ -26,3 +26,11 @@ class BaseView: UIView{
     
     
 }
+
+extension UINavigationBar{
+    final func setColorWithView(){
+        barTintColor = .white
+        shadowImage = UIImage()
+        isTranslucent = false
+    }
+}
