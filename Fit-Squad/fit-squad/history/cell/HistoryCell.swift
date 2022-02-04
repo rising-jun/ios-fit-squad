@@ -41,7 +41,6 @@ extension HistoryCell{
     }
     
     func addCells(view: UIView){
-        print("hallo1")
         for i in 0 ..< self.routine.exercises.count{
             lazy var nameLabel: UILabel = UILabel().then{
                 $0.textAlignment = .center

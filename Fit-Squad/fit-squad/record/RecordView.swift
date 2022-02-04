@@ -13,8 +13,16 @@ class RecordView: BaseView {
     
     lazy var startButton: UIButton = {
         var button = UIButton()
-        button.setTitle("운동 추가", for: .normal)
+        button.setTitle("운동 시작하기", for: .normal)
         button.backgroundColor = .systemBlue
+        button.layer.cornerRadius = 5
+        return button
+    }()
+    
+    lazy var completeButton: UIButton = {
+        var button = UIButton()
+        button.setTitle("운동 완료하기", for: .normal)
+        button.backgroundColor = .systemTeal
         button.layer.cornerRadius = 5
         return button
     }()
@@ -22,6 +30,7 @@ class RecordView: BaseView {
     lazy var routineTableView: UITableView = {
         let tableView = UITableView()
         tableView.backgroundColor = .opaqueSeparator
+        tableView.register(ExercisesCell.self, forCellReuseIdentifier: ExercisesCell.identifier)
         return tableView
     }()
     
@@ -33,7 +42,7 @@ class RecordView: BaseView {
 
         startButton.snp.makeConstraints { make in
             make.height.equalTo(50)
-            make.bottom.equalTo(self.safeAreaLayoutGuide).inset(100)
+            make.bottom.equalTo(self.safeAreaLayoutGuide).inset(10)
             make.left.equalTo(self.safeAreaLayoutGuide).inset(30)
             make.right.equalTo(self.safeAreaLayoutGuide).inset(30)
         }
@@ -41,12 +50,33 @@ class RecordView: BaseView {
         addSubview(routineTableView)
         
         routineTableView.snp.makeConstraints { make in
-            make.top.equalTo(self.safeAreaLayoutGuide).inset(10)
-            make.bottom.equalTo(startButton).inset(30)
-            make.leading.equalTo(self.safeAreaLayoutGuide).inset(10)
-            make.trailing.equalTo(self.safeAreaLayoutGuide)
+            make.bottom.equalTo(self.safeAreaLayoutGuide).inset(70)
+            make.top.leading.trailing.equalTo(self.safeAreaLayoutGuide).inset(10)
+        }
+    }
+    
+    func startButtonPressed() {
+        startButton.removeFromSuperview()
+        
+        addSubview(completeButton)
+        completeButton.snp.makeConstraints { make in
+            make.height.equalTo(50)
+            make.bottom.equalTo(self.safeAreaLayoutGuide).inset(10)
+            make.left.equalTo(self.safeAreaLayoutGuide).inset(30)
+            make.right.equalTo(self.safeAreaLayoutGuide).inset(30)
+        }
+    }
+    
+    func completeButtonPressed() {
+        completeButton.removeFromSuperview()
+        addSubview(startButton)
+        
+        startButton.snp.makeConstraints { make in
+            make.height.equalTo(50)
+            make.bottom.equalTo(self.safeAreaLayoutGuide).inset(10)
+            make.left.equalTo(self.safeAreaLayoutGuide).inset(30)
+            make.right.equalTo(self.safeAreaLayoutGuide).inset(30)
         }
     }
 }
-
 
