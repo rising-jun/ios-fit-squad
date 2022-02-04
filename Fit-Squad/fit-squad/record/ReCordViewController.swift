@@ -35,6 +35,11 @@ class RecordViewController: BaseViewController {
         navigationController?.pushViewController(RoutineViewController(), animated: true)
     }
     
+    func updateExercises(newExercise: ExerciseInfo) {
+        exercises.append(newExercise)
+        v.routineTableView.reloadData()
+    }
+    
     @objc func startRoutine() {
         // 루틴 시작. 추가 비활성화. 체크 활성화. 완료버튼으로 변경.
         tabBarController?.navigationItem.rightBarButtonItem?.isEnabled = false
