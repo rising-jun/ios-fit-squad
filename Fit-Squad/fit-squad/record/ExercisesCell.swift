@@ -12,6 +12,8 @@ class ExercisesCell: UITableViewCell {
 
     static let identifier = "ExerciesesCell"
     private var excercise: ExerciseInfo?
+    private var isActivated: Bool = false
+    
     
     lazy var nameLabel: UILabel = {
         let nameLabel = UILabel()
@@ -23,21 +25,31 @@ class ExercisesCell: UITableViewCell {
     
     lazy var repsLabel: UILabel = {
         let repsLabel = UILabel()
-        repsLabel.text = "10"
+        repsLabel.text = "10 reps"
+        repsLabel.font = UIFont.systemFont(ofSize: 15)
 //        repsLabel.text = "\(excercise?.reps ?? 0)"
         return repsLabel
     }()
     
     lazy var setLabel: UILabel = {
         let setLabel = UILabel()
-        setLabel.text = "5"
+        setLabel.text = "5 sets"
+        repsLabel.font = UIFont.systemFont(ofSize: 15)
 //        setLabel.text = "\(excercise?.set ?? 0)"
         return setLabel
+    }()
+    
+    lazy var checkbox: UIButton = {
+        let checkbox = UIButton()
+        checkbox.setImage(UIImage(systemName: "xmark.circle"), for: .normal)
+        checkbox.setImage(UIImage(systemName: "checkmark.circle.fill"), for: .selected)
+        return checkbox
     }()
     
     lazy var kgLabel: UILabel = {
         let kgLabel = UILabel()
         kgLabel.text = "100kg"
+        kgLabel.font = UIFont.systemFont(ofSize: 15)
 //        kgLabel.text = "\(excercise?.kg ?? 0)"
         return kgLabel
     }()
@@ -46,7 +58,7 @@ class ExercisesCell: UITableViewCell {
         let bottomStack = UIStackView()
         bottomStack.axis = .horizontal
         bottomStack.distribution = .fillEqually
-        bottomStack.backgroundColor = .yellow
+        bottomStack.backgroundColor = .white
         return bottomStack
     }()
     
@@ -61,7 +73,7 @@ class ExercisesCell: UITableViewCell {
         let nameStack = UIStackView()
         nameStack.axis = .horizontal
         nameStack.distribution = .fill
-        nameStack.backgroundColor = .systemBrown
+        nameStack.backgroundColor = .white
         return nameStack
     }()
     
@@ -72,16 +84,20 @@ class ExercisesCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         setupLayout()
+        checkbox.addTarget(self, action: #selector(checkPressed), for: .touchUpInside)
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
+    func activate() {
+        self.isActivated = true
+    }
+    
     func setupLayout() {
         // 운동 이름, 횟수, 세트, 중량의 레이아웃을 설정
         contentView.addSubview(excerciseStack)
-        
         
         
         excerciseStack.snp.makeConstraints { make in
@@ -91,6 +107,11 @@ class ExercisesCell: UITableViewCell {
         
         excerciseStack.addArrangedSubview(nameStack)
         nameStack.addArrangedSubview(nameLabel)
+        nameStack.addArrangedSubview(checkbox)
+        
+        checkbox.snp.makeConstraints { make in
+            make.width.lessThanOrEqualTo(50)
+        }
         
         excerciseStack.addArrangedSubview(bottomStack)
         bottomStack.addArrangedSubview(repsLabel)
@@ -104,15 +125,17 @@ class ExercisesCell: UITableViewCell {
         self.excercise = excercise
     }
     
-    func activateCheckmark() {
-        
+    @objc func checkPressed() {
+        if isActivated {
+            checkbox.isSelected = !checkbox.isSelected
+        } else {
+            print("Please start routine first")
+        }
     }
     
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
     }
 
 }

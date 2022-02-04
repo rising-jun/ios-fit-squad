@@ -13,8 +13,11 @@ class RecordViewController: BaseViewController {
     
     let dummyData = ["운동1", "운동2", "운동3"]
     
+    
     // 추가된 운동 객체가 들어오는 부분. RoutineView에서 append 해줌.
     var exercises: [ExerciseInfo] = []
+    
+    var isRoutineStarted: Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,6 +25,7 @@ class RecordViewController: BaseViewController {
         v.routineTableView.dataSource = self
         setAddButton()
         v.startButton.addTarget(self, action: #selector(startRoutine), for: .touchUpInside)
+        
     }
     
     func setAddButton() {
@@ -36,6 +40,8 @@ class RecordViewController: BaseViewController {
     @objc func startRoutine() {
         // 루틴 시작. 추가 비활성화. 체크 활성화. 완료버튼으로 변경.
         tabBarController?.navigationItem.rightBarButtonItem?.isEnabled = false
+        activateCheckmark()
+        
         v.startButtonPressed()
         v.completeButton.addTarget(self, action: #selector(endRoutine), for: .touchUpInside)
     }
@@ -44,6 +50,20 @@ class RecordViewController: BaseViewController {
         tabBarController?.navigationItem.rightBarButtonItem?.isEnabled = true
         tabBarController?.selectedIndex = 0
         v.completeButtonPressed()
+        
+        let currentRoutine = RoutineInfo()
+        currentRoutine.exercises = exercises
+        RoutineWriter().writeRoutine(data: currentRoutine)
+        
+        // dummy data여서 현재는 cell이 사라지지 않음.
+        exercises.removeAll()
+        v.routineTableView.reloadData()
+    }
+    
+    func activateCheckmark() {
+        // 운동에 완료표시 할 수 있도록 설정.
+        isRoutineStarted = true
+        v.routineTableView.reloadData()
     }
     
 }
@@ -64,13 +84,16 @@ extension RecordViewController: UITableViewDataSource {
         // table view 세팅 시 excerscises 배열에서 데이터를 입력해줌. (현재는 Dummy)
 //        cell.setCellContents(excercise: exercises[indexPath.row])
         cell.awakeFromNib()
+        if isRoutineStarted { cell.activate() }
         return cell
     }
 }
 
 extension RecordViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        // 클릭하면 체크마크 토글
+        if let cell = v.routineTableView.cellForRow(at: indexPath) {
+            cell.isSelected = !cell.isSelected
+        }
     }
 }
 
