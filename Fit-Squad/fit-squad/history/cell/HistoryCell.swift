@@ -70,12 +70,13 @@ extension HistoryCell{
             nameLabelArr.append(nameLabel)
             repsLabelArr.append(repsLabel)
             setLabelArr.append(setLabel)
+            kgLabelArr.append(kgLabel)
 
             
             nameLabel.text = "\(routine.exercises[i].name)"
             repsLabel.text = "\(routine.exercises[i].reps)reps"
             setLabel.text = "\(routine.exercises[i].set)set"
-            
+            kgLabel.text = "\(routine.exercises[i].kg)kg"
             
             view.addSubview(nameLabel)
             view.addSubview(repsLabel)
