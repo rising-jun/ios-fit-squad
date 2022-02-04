@@ -11,57 +11,7 @@ import SnapKit
 import Then
 
 class RoutineView: BaseView {
-    
-    //추가버튼 누르면
-        //RecordView에 ExerciseInfo 객체 append
-        //Navigationbar pop
-    
-    @objc
-    func setCountPlusBtnTouched() {
-        guard let currentSetCountText = setCountLabel.text else { return }
-        guard var count = Int(currentSetCountText) else { return }
-        count += 1
-        setCountMinusBtn.isEnabled = true
-        setCountLabel.text = String(count)
-    }
 
-    @objc
-    func setCountMinusBtnTouched() {
-        guard let currentSetCountText = setCountLabel.text else { return }
-        guard var count = Int(currentSetCountText) else { return }
-
-        if count == 1 {
-            setCountMinusBtn.isEnabled = false
-            return
-        }
-
-        count -= 1
-        setCountLabel.text = String(count)
-    }
-    
-    @objc
-    func addExerciseBtnTouched() -> ExerciseInfo? {
-        guard let exerciseName = exerciseNameSearchTextField.text else { return nil }
-        
-        guard let repCount = repCountTextField.text else { return nil }
-        guard let weight = weightTextField.text else { return nil }
-        guard let setCount = setCountLabel.text else { return nil }
-        
-        guard let repCountInt = Int(repCount) else { return nil }
-        guard let weightInt =  Int(weight) else { return nil }
-        guard let setCountInt = Int(setCount) else { return nil }
-        
-        let exerciseInfo = ExerciseInfo()
-        exerciseInfo.name = exerciseName
-        exerciseInfo.reps = repCountInt
-        exerciseInfo.set = setCountInt
-        exerciseInfo.kg = weightInt
-        
-        print("\(exerciseInfo.name), \(exerciseInfo.reps), \(exerciseInfo.set), \(exerciseInfo.kg)")
-        return exerciseInfo
-    }
-    
-    
     lazy var addTitleText = UILabel().then {
         $0.text = "운동 추가하기"
         $0.font = UIFont.boldSystemFont(ofSize: 30)
@@ -114,19 +64,20 @@ class RoutineView: BaseView {
         $0.translatesAutoresizingMaskIntoConstraints = false
         $0.textAlignment = .center
     }
+    
     lazy var setCountPlusBtn = UIButton().then {
         $0.setTitle("+", for: .normal)
         $0.setTitleColor(.blue, for: .normal)
         $0.backgroundColor = .systemGray6
         $0.translatesAutoresizingMaskIntoConstraints = false
-        $0.addTarget(self, action: #selector(setCountPlusBtnTouched), for: .touchUpInside)
     }
+    
     lazy var setCountMinusBtn = UIButton().then {
         $0.setTitle("-", for: .normal)
         $0.setTitleColor(.red, for: .normal)
         $0.backgroundColor = .systemGray6
         $0.translatesAutoresizingMaskIntoConstraints = false
-        $0.addTarget(self, action: #selector(setCountMinusBtnTouched), for: .touchUpInside)
+        
     }
     
     
@@ -148,7 +99,6 @@ class RoutineView: BaseView {
         $0.translatesAutoresizingMaskIntoConstraints = false
         $0.textAlignment = .center
     }
-    
 
     lazy var addExerciseBtn = UIButton().then {
         $0.setTitle("추가", for: .normal)
@@ -156,7 +106,6 @@ class RoutineView: BaseView {
         $0.backgroundColor = .systemGray6
         $0.layer.cornerRadius = 10
         $0.translatesAutoresizingMaskIntoConstraints = false
-        $0.addTarget(self, action: #selector(addExerciseBtnTouched), for: .touchUpInside)
     }
     
     

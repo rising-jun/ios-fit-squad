@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		1EA4693B27ACF5A900C6BEB3 /* RoutineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EA4693A27ACF5A900C6BEB3 /* RoutineView.swift */; };
+		1EA4693D27AD477D00C6BEB3 /* ExercisesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EA4693C27AD477D00C6BEB3 /* ExercisesCell.swift */; };
 		723FA87B27AB6F0100137A2B /* ReCordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 723FA87A27AB6F0100137A2B /* ReCordViewController.swift */; };
 		723FA87D27AB6F0D00137A2B /* RoutineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 723FA87C27AB6F0D00137A2B /* RoutineViewController.swift */; };
 		723FA87F27AB6F1700137A2B /* HistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 723FA87E27AB6F1700137A2B /* HistoryViewController.swift */; };
@@ -28,12 +29,12 @@
 		7279E84627A79516008E814D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7279E84427A79516008E814D /* LaunchScreen.storyboard */; };
 		7279E84F27A7956F008E814D /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7279E84E27A7956F008E814D /* BaseView.swift */; };
 		7279E85127A795B2008E814D /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7279E85027A795B2008E814D /* BaseViewController.swift */; };
-		BC8E378127AD044B00CA84BC /* ExercisesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC8E378027AD044B00CA84BC /* ExercisesCell.swift */; };
 		DD6E81F0AF814351E2E082CD /* Pods_Fit_Squad.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C20D15911049106E88CCB55 /* Pods_Fit_Squad.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		1EA4693A27ACF5A900C6BEB3 /* RoutineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoutineView.swift; sourceTree = "<group>"; };
+		1EA4693C27AD477D00C6BEB3 /* ExercisesCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExercisesCell.swift; sourceTree = "<group>"; };
 		4BCD85BB8B7EF65F78213B39 /* Pods-Fit-Squad.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Fit-Squad.release.xcconfig"; path = "Target Support Files/Pods-Fit-Squad/Pods-Fit-Squad.release.xcconfig"; sourceTree = "<group>"; };
 		6C20D15911049106E88CCB55 /* Pods_Fit_Squad.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Fit_Squad.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		723FA87A27AB6F0100137A2B /* ReCordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReCordViewController.swift; sourceTree = "<group>"; };
@@ -58,7 +59,6 @@
 		7279E84727A79516008E814D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7279E84E27A7956F008E814D /* BaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
 		7279E85027A795B2008E814D /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
-		BC8E378027AD044B00CA84BC /* ExercisesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ExercisesCell.swift; path = "/Users/bumgeunsong/coding/ios-fit-squad/Fit-Squad/fit-squad/record/ExercisesCell.swift"; sourceTree = "<absolute>"; };
 		FC1D9852484977D9D332CE26 /* Pods-Fit-Squad.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Fit-Squad.debug.xcconfig"; path = "Target Support Files/Pods-Fit-Squad/Pods-Fit-Squad.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -129,8 +129,8 @@
 		723FA87927AB6EE100137A2B /* record */ = {
 			isa = PBXGroup;
 			children = (
+				1EA4693C27AD477D00C6BEB3 /* ExercisesCell.swift */,
 				725FB27127ABE7E8006F4C47 /* RecordView.swift */,
-				BC8E378027AD044B00CA84BC /* ExercisesCell.swift */,
 				723FA87A27AB6F0100137A2B /* ReCordViewController.swift */,
 			);
 			path = record;
@@ -358,10 +358,10 @@
 				723FA87B27AB6F0100137A2B /* ReCordViewController.swift in Sources */,
 				7279E83E27A79514008E814D /* ViewController.swift in Sources */,
 				723FA87F27AB6F1700137A2B /* HistoryViewController.swift in Sources */,
+				1EA4693D27AD477D00C6BEB3 /* ExercisesCell.swift in Sources */,
 				726B62EA27AD18B9008F2E74 /* HistoryProtocols.swift in Sources */,
 				725FB27227ABE7E8006F4C47 /* RecordView.swift in Sources */,
 				7279E83A27A79514008E814D /* AppDelegate.swift in Sources */,
-				BC8E378127AD044B00CA84BC /* ExercisesCell.swift in Sources */,
 				725FB25927ABA888006F4C47 /* SplashView.swift in Sources */,
 				725FB27727ABE827006F4C47 /* Entity.swift in Sources */,
 				726B62E727AD0FC4008F2E74 /* RoutineReader.swift in Sources */,
