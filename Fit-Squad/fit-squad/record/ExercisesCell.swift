@@ -123,7 +123,6 @@ class ExercisesCell: UITableViewCell {
         }
     }
     
-    
     func setCellContents(excercise: ExerciseInfo) {
         self.excercise = excercise
     }

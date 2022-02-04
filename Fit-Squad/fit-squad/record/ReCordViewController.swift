@@ -21,7 +21,7 @@ class RecordViewController: BaseViewController {
         super.viewDidLoad()
         view = v
         v.routineTableView.dataSource = self
-        
+
         setAddButton()
         v.startButton.addTarget(self, action: #selector(startRoutine), for: .touchUpInside)
     }
@@ -67,23 +67,21 @@ class RecordViewController: BaseViewController {
         isRoutineStarted = true
         v.routineTableView.reloadData()
     }
-    
 }
 
 extension RecordViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        if dummyData.count == 0 {
+        if exercises.count == 0 {
             // 만약 exercises가 empty인 경우, '운동을 추가해주세요' 메시지 띄우기
         }
-        
-        return 1
+        return exercises.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell: ExercisesCell = v.routineTableView.dequeueReusableCell(withIdentifier: ExercisesCell.identifier, for: indexPath) as! ExercisesCell
         // table view 세팅 시 excerscises 배열에서 데이터를 입력해줌. (현재는 Dummy)
-//        cell.setCellContents(excercise: exercises[indexPath.row])
+        cell.setCellContents(excercise: exercises[indexPath.row])
         cell.awakeFromNib()
         cell.delegate = self
         if isRoutineStarted { cell.activate() }
@@ -100,6 +98,8 @@ extension RecordViewController: ExercisesCellDelegate {
         present(alert, animated: true, completion: nil)
     }
 }
+
+
 
 
 #if DEBUG
