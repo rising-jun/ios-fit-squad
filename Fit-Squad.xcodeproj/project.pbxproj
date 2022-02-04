@@ -28,6 +28,7 @@
 		7279E84627A79516008E814D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7279E84427A79516008E814D /* LaunchScreen.storyboard */; };
 		7279E84F27A7956F008E814D /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7279E84E27A7956F008E814D /* BaseView.swift */; };
 		7279E85127A795B2008E814D /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7279E85027A795B2008E814D /* BaseViewController.swift */; };
+		BC8E378127AD044B00CA84BC /* ExercisesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC8E378027AD044B00CA84BC /* ExercisesCell.swift */; };
 		DD6E81F0AF814351E2E082CD /* Pods_Fit_Squad.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C20D15911049106E88CCB55 /* Pods_Fit_Squad.framework */; };
 /* End PBXBuildFile section */
 
@@ -57,6 +58,7 @@
 		7279E84727A79516008E814D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7279E84E27A7956F008E814D /* BaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
 		7279E85027A795B2008E814D /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		BC8E378027AD044B00CA84BC /* ExercisesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ExercisesCell.swift; path = "/Users/bumgeunsong/coding/ios-fit-squad/Fit-Squad/fit-squad/record/ExercisesCell.swift"; sourceTree = "<absolute>"; };
 		FC1D9852484977D9D332CE26 /* Pods-Fit-Squad.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Fit-Squad.debug.xcconfig"; path = "Target Support Files/Pods-Fit-Squad/Pods-Fit-Squad.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -128,6 +130,7 @@
 			isa = PBXGroup;
 			children = (
 				725FB27127ABE7E8006F4C47 /* RecordView.swift */,
+				BC8E378027AD044B00CA84BC /* ExercisesCell.swift */,
 				723FA87A27AB6F0100137A2B /* ReCordViewController.swift */,
 			);
 			path = record;
@@ -358,6 +361,7 @@
 				726B62EA27AD18B9008F2E74 /* HistoryProtocols.swift in Sources */,
 				725FB27227ABE7E8006F4C47 /* RecordView.swift in Sources */,
 				7279E83A27A79514008E814D /* AppDelegate.swift in Sources */,
+				BC8E378127AD044B00CA84BC /* ExercisesCell.swift in Sources */,
 				725FB25927ABA888006F4C47 /* SplashView.swift in Sources */,
 				725FB27727ABE827006F4C47 /* Entity.swift in Sources */,
 				726B62E727AD0FC4008F2E74 /* RoutineReader.swift in Sources */,
