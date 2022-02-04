@@ -6,16 +6,73 @@
 //
 
 import Foundation
+import UIKit
 
 class RecordViewController: BaseViewController {
     lazy var v = RecordView(frame: view.frame)
     
+    let dummyData = ["운동1", "운동2", "운동3"]
+    
+    // 추가된 운동 객체가 들어오는 부분. RoutineView에서 append 해줌.
+    var exercises: [ExerciseInfo] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view = v
+        v.routineTableView.dataSource = self
+        setAddButton()
+        v.startButton.addTarget(self, action: #selector(startRoutine), for: .touchUpInside)
+    }
+    
+    func setAddButton() {
+        tabBarController?.navigationItem.setRightBarButton(UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addExercises)), animated: false)
+    }
+    
+    @objc func addExercises() {
+        // routine view로 이동
+        navigationController?.pushViewController(RoutineViewController(), animated: true)
+    }
+    
+    @objc func startRoutine() {
+        // 루틴 시작. 추가 비활성화. 체크 활성화. 완료버튼으로 변경.
+        tabBarController?.navigationItem.rightBarButtonItem?.isEnabled = false
+        v.startButtonPressed()
+        v.completeButton.addTarget(self, action: #selector(endRoutine), for: .touchUpInside)
+    }
+    
+    @objc func endRoutine() {
+        tabBarController?.navigationItem.rightBarButtonItem?.isEnabled = true
+        tabBarController?.selectedIndex = 0
+        v.completeButtonPressed()
+    }
+    
+}
+
+extension RecordViewController: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        
+        
+        if dummyData.count == 0 {
+            // 만약 exercises가 empty인 경우, '운동을 추가해주세요' 메시지 띄우기
+        }
+        
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell: ExercisesCell = v.routineTableView.dequeueReusableCell(withIdentifier: ExercisesCell.identifier, for: indexPath) as! ExercisesCell
+        // table view 세팅 시 excerscises 배열에서 데이터를 입력해줌. (현재는 Dummy)
+//        cell.setCellContents(excercise: exercises[indexPath.row])
+        cell.awakeFromNib()
+        return cell
     }
 }
 
+extension RecordViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        // 클릭하면 체크마크 토글
+    }
+}
 
 
 #if DEBUG
@@ -40,7 +97,7 @@ extension UIViewController {
 
 struct PreView: PreviewProvider {
    static var previews: some View {
-       RecordViewController().toPreview()
+       SplashViewController().toPreview()
    }
 }
 #endif
