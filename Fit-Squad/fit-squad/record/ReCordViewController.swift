@@ -56,14 +56,14 @@ extension RecordViewController: UITableViewDataSource {
             // 만약 exercises가 empty인 경우, '운동을 추가해주세요' 메시지 띄우기
         }
         
-        return dummyData.count
+        return 1
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell: ExercisesCell = v.routineTableView.dequeueReusableCell(withIdentifier: ExercisesCell.identifier, for: indexPath) as! ExercisesCell
-        var config = cell.defaultContentConfiguration()
-        config.text = dummyData[indexPath.row]
-        cell.contentConfiguration = config
+        // table view 세팅 시 excerscises 배열에서 데이터를 입력해줌. (현재는 Dummy)
+//        cell.setCellContents(excercise: exercises[indexPath.row])
+        cell.awakeFromNib()
         return cell
     }
 }
