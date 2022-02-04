@@ -24,14 +24,14 @@ class RecordViewController: BaseViewController {
     }
     
     func setAddButton() {
-        navigationController?.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addExercises))
+        tabBarController?.navigationItem.setRightBarButton(UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addExercises)), animated: false)
     }
     
     
     
     @objc func addExercises() {
         // routine view로 이동
-        // 
+        navigationController?.pushViewController(RoutineViewController(), animated: true)
     }
 }
 

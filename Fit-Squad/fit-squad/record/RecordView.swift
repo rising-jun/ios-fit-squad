@@ -13,7 +13,7 @@ class RecordView: BaseView {
     
     lazy var startButton: UIButton = {
         var button = UIButton()
-        button.setTitle("운동 추가", for: .normal)
+        button.setTitle("운동 시작하기", for: .normal)
         button.backgroundColor = .systemBlue
         button.layer.cornerRadius = 5
         return button
