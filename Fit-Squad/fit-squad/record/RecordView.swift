@@ -19,6 +19,14 @@ class RecordView: BaseView {
         return button
     }()
     
+    lazy var completeButton: UIButton = {
+        var button = UIButton()
+        button.setTitle("운동 완료하기", for: .normal)
+        button.backgroundColor = .systemTeal
+        button.layer.cornerRadius = 5
+        return button
+    }()
+    
     lazy var routineTableView: UITableView = {
         let tableView = UITableView()
         tableView.backgroundColor = .opaqueSeparator
@@ -42,10 +50,33 @@ class RecordView: BaseView {
         addSubview(routineTableView)
         
         routineTableView.snp.makeConstraints { make in
-            make.bottom.equalTo(startButton.snp.top).offset(10)
+            make.bottom.equalTo(self.safeAreaLayoutGuide).inset(70)
             make.top.leading.trailing.equalTo(self.safeAreaLayoutGuide).inset(10)
         }
     }
+    
+    func startButtonPressed() {
+        startButton.removeFromSuperview()
+        
+        addSubview(completeButton)
+        completeButton.snp.makeConstraints { make in
+            make.height.equalTo(50)
+            make.bottom.equalTo(self.safeAreaLayoutGuide).inset(10)
+            make.left.equalTo(self.safeAreaLayoutGuide).inset(30)
+            make.right.equalTo(self.safeAreaLayoutGuide).inset(30)
+        }
+    }
+    
+    func completeButtonPressed() {
+        completeButton.removeFromSuperview()
+        addSubview(startButton)
+        
+        startButton.snp.makeConstraints { make in
+            make.height.equalTo(50)
+            make.bottom.equalTo(self.safeAreaLayoutGuide).inset(10)
+            make.left.equalTo(self.safeAreaLayoutGuide).inset(30)
+            make.right.equalTo(self.safeAreaLayoutGuide).inset(30)
+        }
+    }
 }
-
 
