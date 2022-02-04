@@ -7,8 +7,6 @@
 
 import Foundation
 import UIKit
-import SnapKit
-import Then
 
 class RoutineViewController: BaseViewController {
     lazy var v = RoutineView(frame: view.frame)
