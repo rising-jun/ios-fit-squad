@@ -22,6 +22,7 @@ class RecordView: BaseView {
     lazy var routineTableView: UITableView = {
         let tableView = UITableView()
         tableView.backgroundColor = .opaqueSeparator
+        tableView.register(ExercisesCell.self, forCellReuseIdentifier: ExercisesCell.identifier)
         return tableView
     }()
     
@@ -33,7 +34,7 @@ class RecordView: BaseView {
 
         startButton.snp.makeConstraints { make in
             make.height.equalTo(50)
-            make.bottom.equalTo(self.safeAreaLayoutGuide).inset(100)
+            make.bottom.equalTo(self.safeAreaLayoutGuide).inset(10)
             make.left.equalTo(self.safeAreaLayoutGuide).inset(30)
             make.right.equalTo(self.safeAreaLayoutGuide).inset(30)
         }
@@ -41,10 +42,8 @@ class RecordView: BaseView {
         addSubview(routineTableView)
         
         routineTableView.snp.makeConstraints { make in
-            make.top.equalTo(self.safeAreaLayoutGuide).inset(10)
-            make.bottom.equalTo(startButton).inset(30)
-            make.leading.equalTo(self.safeAreaLayoutGuide).inset(10)
-            make.trailing.equalTo(self.safeAreaLayoutGuide)
+            make.bottom.equalTo(startButton.snp.top).offset(10)
+            make.top.leading.trailing.equalTo(self.safeAreaLayoutGuide).inset(10)
         }
     }
 }
