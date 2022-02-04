@@ -12,9 +12,12 @@ import Then
 
 class RoutineView: BaseView {
     
+    //추가버튼 누르면
+        //RecordView에 ExerciseInfo 객체 append
+        //Navigationbar pop
+    
     @objc
     func setCountPlusBtnTouched() {
-        print("+")
         guard let currentSetCountText = setCountLabel.text else { return }
         guard var count = Int(currentSetCountText) else { return }
         count += 1
@@ -24,7 +27,6 @@ class RoutineView: BaseView {
 
     @objc
     func setCountMinusBtnTouched() {
-        print("-")
         guard let currentSetCountText = setCountLabel.text else { return }
         guard var count = Int(currentSetCountText) else { return }
 
@@ -75,7 +77,7 @@ class RoutineView: BaseView {
         $0.textAlignment = .center
     }
     lazy var exerciseNameSearchTextField = UISearchTextField().then {
-        $0.placeholder = "Search Exersices"
+        $0.placeholder = "운동 검색"
         $0.backgroundColor = .systemGray6
     }
     
