@@ -132,8 +132,6 @@ class ExercisesCell: UITableViewCell {
         if isActivated {
             checkbox.isSelected = !checkbox.isSelected
         } else {
-            
-            
             delegate?.checkBeforeActivate()
         }
     }

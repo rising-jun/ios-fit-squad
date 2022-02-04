@@ -44,7 +44,6 @@ class RecordViewController: BaseViewController {
         // 루틴 시작. 추가 비활성화. 체크 활성화. 완료버튼으로 변경.
         tabBarController?.navigationItem.rightBarButtonItem?.isEnabled = false
         activateCheckmark()
-        
         v.startButtonPressed()
         v.completeButton.addTarget(self, action: #selector(endRoutine), for: .touchUpInside)
     }
