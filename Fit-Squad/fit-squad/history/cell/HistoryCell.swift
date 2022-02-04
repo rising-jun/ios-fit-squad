@@ -71,7 +71,11 @@ extension HistoryCell{
             repsLabelArr.append(repsLabel)
             setLabelArr.append(setLabel)
 
+            
             nameLabel.text = "\(routine.exercises[i].name)"
+            repsLabel.text = "\(routine.exercises[i].reps)reps"
+            setLabel.text = "\(routine.exercises[i].set)set"
+            
             
             view.addSubview(nameLabel)
             view.addSubview(repsLabel)
@@ -82,16 +86,23 @@ extension HistoryCell{
                     $0.textAlignment = .center
                     $0.font = UIFont.boldSystemFont(ofSize: 24)
                     $0.text = "date label"
+                    $0.adjustsFontSizeToFitWidth = true
                 }
                 
                 view.addSubview(dateLabel)
                 
                 dateLabel.snp.makeConstraints { make in
                     make.top.equalTo(self).offset(5)
-                    make.width.equalTo(150)
+                    make.width.equalTo(200)
                     make.height.equalTo(30)
                     make.leading.equalTo(self.snp.leading)
                 }
+                var dateString = "\(routine.date)"
+
+                let endIdx: String.Index = dateString.index(dateString.startIndex, offsetBy: 19)
+                var date = String(dateString[...endIdx])
+                
+                dateLabel.text = "\(date)"
                 
                 nameLabel.snp.makeConstraints { make in
                     make.top.equalTo(dateLabel.snp.bottom).offset(10)
