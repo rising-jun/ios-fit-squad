@@ -12,7 +12,6 @@ import Then
 class HistoryView: BaseView{
     
     lazy var tableView: UITableView = UITableView().then{
-        $0.backgroundColor = .blue
         $0.separatorStyle = .none
     }
     

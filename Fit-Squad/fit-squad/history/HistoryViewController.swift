@@ -14,29 +14,27 @@ class HistoryViewController: BaseViewController{
     private let historyDelegate = HistoryTableDelegate()
     private let write = RoutineWriter()
     private let read = RoutineReader()
+    private var historyProtocol: HistoryProtocol?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setView()
         setNavigateBar()
-        
-        
+        historyProtocol = self
+
         //read.readRoutine()
-        //write.writeRoutine(data: routine)
         
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        print("view will appear")
         // update table view
-        DispatchQueue.main.async { [weak self] in
-            guard let self = self else { return }
-            self.updateTableView { routineArr in
-                
-            }
-            
-        }
+        
+        //DispatchQueue.global(qos: .background).async { [weak self] in
+           // guard let self = self else { return }
+            var routineArr = self.read.readRoutine()
+            self.historyProtocol?.updateTableView(routineArr: routineArr)
+        //}
     }
     
     
@@ -46,31 +44,26 @@ extension HistoryViewController{
     
     func setView(){
         view = v
-        
+
         v.tableView.register(HistoryCell.self, forCellReuseIdentifier: "historyCell")
         v.tableView.delegate = historyDelegate
         v.tableView.dataSource = historyDelegate
     }
     
     func setNavigateBar(){
-        
-        self.tabBarController!.navigationItem.leftBarButtonItem
         self.tabBarController!.navigationItem.hidesBackButton = true
         self.tabBarController?.navigationItem.leftBarButtonItem = self.v.setNavigationBarIconView()
-    }
-    
-    func updateTableView(_ getRoutine: ([RoutineInfo]) -> Void ){
-            var routineArr = self.read.readRoutine()
-            getRoutine(routineArr)
-        
     }
     
 }
 
 extension HistoryViewController: HistoryProtocol{
     func updateTableView(routineArr: [RoutineInfo]) {
-        historyDelegate.routineArr = routineArr
-        v.tableView.reloadData()
+        DispatchQueue.main.async { [weak self] in
+            guard let self = self else { return }
+            self.historyDelegate.routineArr = routineArr
+            self.v.tableView.reloadData()
+        }
     }
     
     

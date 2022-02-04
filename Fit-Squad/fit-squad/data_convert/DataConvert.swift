@@ -34,7 +34,6 @@ class DataConvert{
         let jsonDecoder = JSONDecoder()
         let data = routine.routine.data(using: .utf8)
         let routineInfo = try! jsonDecoder.decode(RoutineInfo.self, from: data!)
-        print("result : \(routineInfo.exercises.count)")
         return routineInfo
     }
 }
