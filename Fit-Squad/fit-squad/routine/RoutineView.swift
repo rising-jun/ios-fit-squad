@@ -11,38 +11,7 @@ import SnapKit
 import Then
 
 class RoutineView: BaseView {
-    
-    @objc
-    func setCountPlusBtnTouched() {
-        print("+")
-        guard let currentSetCountText = setCountLabel.text else { return }
-        guard var count = Int(currentSetCountText) else { return }
-        count += 1
-        setCountLabel.text = String(count)
-    }
 
-    @objc
-    func setCountMinusBtnTouched() {
-        print("-")
-        guard let currentSetCountText = setCountLabel.text else { return }
-        guard var count = Int(currentSetCountText) else { return }
-        count -= 1
-        setCountLabel.text = String(count)
-    }
-    
-    @objc
-    func addExerciseBtnTouched() {
-        guard let exerciseName = exerciseNameSearchTextField.text else { return }
-        guard let repCount = repCountTextField.text else { return }
-        guard let weight = weightTextField.text else { return }
-        guard let setCount = setCountLabel.text else { return }
-//        let exerciseInfo = ExerciseInfo(exerciseName: exerciseName, repCount: repCount, setCount: setCount, weight: weight)
-//        print("\(exerciseInfo.exerciseName), \(exerciseInfo.repCount), \(exerciseInfo.setCount), \(exerciseInfo.weight)")
-        print("\(exerciseName), \(repCount), \(setCount), \(weight)")
-//        return exerciseInfo
-    }
-    
-    
     lazy var addTitleText = UILabel().then {
         $0.text = "운동 추가하기"
         $0.font = UIFont.boldSystemFont(ofSize: 30)
@@ -58,7 +27,7 @@ class RoutineView: BaseView {
         $0.textAlignment = .center
     }
     lazy var exerciseNameSearchTextField = UISearchTextField().then {
-        $0.placeholder = "Search Exersices"
+        $0.placeholder = "운동 검색"
         $0.backgroundColor = .systemGray6
     }
     
@@ -95,17 +64,20 @@ class RoutineView: BaseView {
         $0.translatesAutoresizingMaskIntoConstraints = false
         $0.textAlignment = .center
     }
+    
     lazy var setCountPlusBtn = UIButton().then {
         $0.setTitle("+", for: .normal)
         $0.setTitleColor(.blue, for: .normal)
+        $0.backgroundColor = .systemGray6
         $0.translatesAutoresizingMaskIntoConstraints = false
-        $0.addTarget(self, action: #selector(setCountPlusBtnTouched), for: .touchUpInside)
     }
+    
     lazy var setCountMinusBtn = UIButton().then {
         $0.setTitle("-", for: .normal)
-        $0.setTitleColor(.blue, for: .normal)
+        $0.setTitleColor(.red, for: .normal)
+        $0.backgroundColor = .systemGray6
         $0.translatesAutoresizingMaskIntoConstraints = false
-        $0.addTarget(self, action: #selector(setCountMinusBtnTouched), for: .touchUpInside)
+        
     }
     
     
@@ -127,13 +99,13 @@ class RoutineView: BaseView {
         $0.translatesAutoresizingMaskIntoConstraints = false
         $0.textAlignment = .center
     }
-    
 
     lazy var addExerciseBtn = UIButton().then {
         $0.setTitle("추가", for: .normal)
         $0.setTitleColor(.blue, for: .normal)
+        $0.backgroundColor = .systemGray6
+        $0.layer.cornerRadius = 10
         $0.translatesAutoresizingMaskIntoConstraints = false
-        $0.addTarget(self, action: #selector(addExerciseBtnTouched), for: .touchUpInside)
     }
     
     
@@ -168,12 +140,12 @@ class RoutineView: BaseView {
         }
         
         exerciseNameText.snp.makeConstraints{ make in
-            make.top.equalTo(addTitleText).offset(70)
+            make.top.equalTo(addTitleText).offset(80)
             make.leading.equalTo(self).offset(20)
             make.trailing.equalTo(self).offset(-250)
         }
         exerciseNameSearchTextField.snp.makeConstraints{ make in
-            make.top.equalTo(addTitleText).offset(70)
+            make.top.equalTo(addTitleText).offset(80)
             make.leading.equalTo(exerciseNameText).offset(130)
             make.trailing.equalTo(self).offset(-100)
             make.height.equalTo(30)
@@ -181,62 +153,58 @@ class RoutineView: BaseView {
         
         
         repText.snp.makeConstraints{ make in
-            make.top.equalTo(exerciseNameText).offset(70)
+            make.top.equalTo(exerciseNameText).offset(80)
             make.leading.equalTo(self).offset(20)
             make.trailing.equalTo(self).offset(-250)
         }
         repCountTextField.snp.makeConstraints{ make in
-            make.top.equalTo(exerciseNameText).offset(70)
+            make.top.equalTo(exerciseNameText).offset(80)
             make.leading.equalTo(repText).offset(130)
             make.trailing.equalTo(self).offset(-100)
             make.height.equalTo(30)
         }
         repCountText.snp.makeConstraints{ make in
-            make.top.equalTo(exerciseNameText).offset(70)
-            make.leading.equalTo(repCountTextField).offset(120)
-            make.trailing.equalTo(self).offset(-20)
+            make.top.equalTo(exerciseNameText).offset(80)
+            make.leading.equalTo(repCountTextField.snp.trailing).offset(20)
         }
         
         
         setCountText.snp.makeConstraints{ make in
-            make.top.equalTo(repText).offset(70)
+            make.top.equalTo(repText).offset(80)
             make.leading.equalTo(self).offset(20)
             make.trailing.equalTo(self).offset(-250)
         }
         setCountLabel.snp.makeConstraints{ make in
-            make.top.equalTo(repText).offset(70)
-            make.leading.equalTo(setCountText).offset(20)
-            make.trailing.equalTo(self).offset(-20)
+            make.top.equalTo(repText).offset(80)
+            make.leading.equalTo(setCountText.snp.trailing).offset(10)
+            make.trailing.equalTo(self).offset(-200)
         }
         setCountPlusBtn.snp.makeConstraints{ make in
-            make.top.equalTo(repText).offset(70)
-            make.leading.equalTo(setCountLabel).offset(120)
-            make.trailing.equalTo(self).offset(-20)
-            make.width.equalTo(1)
+            make.top.equalTo(repText).offset(80)
+            make.leading.equalTo(setCountLabel.snp.trailing).offset(30)
+            make.width.equalTo(60)
         }
         setCountMinusBtn.snp.makeConstraints{ make in
-            make.top.equalTo(repText).offset(70)
-            make.leading.equalTo(setCountPlusBtn).offset(130)
-            make.trailing.equalTo(self).offset(-20)
-            make.width.equalTo(1)
+            make.top.equalTo(repText).offset(80)
+            make.leading.equalTo(setCountPlusBtn.snp.trailing).offset(10)
+            make.width.equalTo(60)
         }
         
         
         weight.snp.makeConstraints{ make in
-            make.top.equalTo(setCountText).offset(70)
+            make.top.equalTo(setCountText).offset(80)
             make.leading.equalTo(self).offset(20)
             make.trailing.equalTo(self).offset(-250)
         }
         weightTextField.snp.makeConstraints{ make in
-            make.top.equalTo(setCountText).offset(70)
+            make.top.equalTo(setCountText).offset(80)
             make.leading.equalTo(weight).offset(130)
             make.trailing.equalTo(self).offset(-100)
             make.height.equalTo(30)
         }
         weightCountText.snp.makeConstraints{ make in
-            make.top.equalTo(setCountText).offset(70)
-            make.leading.equalTo(weightTextField).offset(130)
-            make.trailing.equalTo(self).offset(-20)
+            make.top.equalTo(setCountText).offset(80)
+            make.leading.equalTo(weightTextField.snp.trailing).offset(20)
         }
         
         
@@ -244,7 +212,7 @@ class RoutineView: BaseView {
             make.leading.equalTo(self).offset(20)
             make.trailing.equalTo(self).offset(-20)
             make.bottom.equalTo(self).offset(-50)
+            make.height.equalTo(50)
         }
     }
 }
-

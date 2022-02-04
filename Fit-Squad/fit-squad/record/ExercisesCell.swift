@@ -22,25 +22,23 @@ class ExercisesCell: UITableViewCell {
     
     lazy var nameLabel: UILabel = {
         let nameLabel = UILabel()
-        nameLabel.text = "Bench Press"
         nameLabel.font = UIFont.boldSystemFont(ofSize: 20)
-//        nameLabel.text = excercise?.name
+        nameLabel.text = excercise?.name
         return nameLabel
     }()
     
     lazy var repsLabel: UILabel = {
         let repsLabel = UILabel()
-        repsLabel.text = "10 reps"
+        repsLabel.text = "\(excercise?.reps ?? 0)"
         repsLabel.font = UIFont.systemFont(ofSize: 15)
-//        repsLabel.text = "\(excercise?.reps ?? 0)"
         return repsLabel
     }()
     
     lazy var setLabel: UILabel = {
         let setLabel = UILabel()
-        setLabel.text = "5 sets"
+//        setLabel.text = "5 sets"
         repsLabel.font = UIFont.systemFont(ofSize: 15)
-//        setLabel.text = "\(excercise?.set ?? 0)"
+        setLabel.text = "\(excercise?.set ?? 0)"
         return setLabel
     }()
     
@@ -53,9 +51,9 @@ class ExercisesCell: UITableViewCell {
     
     lazy var kgLabel: UILabel = {
         let kgLabel = UILabel()
-        kgLabel.text = "100kg"
+//        kgLabel.text = "100kg"
         kgLabel.font = UIFont.systemFont(ofSize: 15)
-//        kgLabel.text = "\(excercise?.kg ?? 0)"
+        kgLabel.text = "\(excercise?.kg ?? 0)"
         return kgLabel
     }()
     

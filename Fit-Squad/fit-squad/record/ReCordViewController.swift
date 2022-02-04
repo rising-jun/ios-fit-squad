@@ -21,6 +21,7 @@ class RecordViewController: BaseViewController {
         super.viewDidLoad()
         view = v
         v.routineTableView.dataSource = self
+        v.routineTableView.delegate = self
 
         setAddButton()
         v.startButton.addTarget(self, action: #selector(startRoutine), for: .touchUpInside)
@@ -50,16 +51,18 @@ class RecordViewController: BaseViewController {
     
     @objc func endRoutine() {
         tabBarController?.navigationItem.rightBarButtonItem?.isEnabled = true
-        tabBarController?.selectedIndex = 0
         v.completeButtonPressed()
         
         let currentRoutine = RoutineInfo()
         currentRoutine.exercises = exercises
+        currentRoutine.date = .now
         RoutineWriter().writeRoutine(data: currentRoutine)
         
         // dummy data여서 현재는 cell이 사라지지 않음.
         exercises.removeAll()
         v.routineTableView.reloadData()
+        
+        tabBarController?.selectedIndex = 0
     }
     
     func activateCheckmark() {
@@ -86,6 +89,15 @@ extension RecordViewController: UITableViewDataSource {
         cell.delegate = self
         if isRoutineStarted { cell.activate() }
         return cell
+    }
+    
+    
+}
+
+extension RecordViewController: UITableViewDelegate {
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return CGFloat(100)
     }
 }
 
