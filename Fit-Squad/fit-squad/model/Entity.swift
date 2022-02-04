@@ -8,12 +8,21 @@
 import Foundation
 import RealmSwift
 
-class RoutineInfo: Object{
+class RoutineRealm: Object, Codable{
+    @objc dynamic var routine: String = ""
+    
+    convenience init(jsonData: String) {
+        self.init()
+        self.routine = jsonData
+    }
+}
+
+class RoutineInfo: Object, Codable{
     @objc dynamic var date: Date = Date()
     var exercises: [ExerciseInfo] = []
 }
 
-class ExerciseInfo: Object{
+class ExerciseInfo: Object, Codable{
     @objc dynamic var name: String = Name.none.rawValue
     @objc dynamic var set: Int = 0
     @objc dynamic var reps: Int = 0
