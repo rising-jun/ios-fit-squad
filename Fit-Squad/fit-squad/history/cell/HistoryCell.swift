@@ -23,11 +23,12 @@ class HistoryCell: UITableViewCell{
         super.awakeFromNib()
         contentView.addSubview(view)
         
-        view.backgroundColor = .yellow
         view.snp.makeConstraints { make in
             make.width.equalTo(self)
             make.height.equalTo(50 + (40 * routine.exercises.count))
         }
+        view.layer.borderWidth = 2
+        view.layer.cornerRadius = 15
         
         addCells(view: view)
         
@@ -92,7 +93,6 @@ extension HistoryCell{
                     make.leading.equalTo(self.snp.leading)
                 }
                 
-                nameLabel.backgroundColor = .yellow
                 nameLabel.snp.makeConstraints { make in
                     make.top.equalTo(dateLabel.snp.bottom).offset(10)
                     make.width.equalTo(150)
@@ -122,7 +122,6 @@ extension HistoryCell{
                     make.leading.equalTo(setLabel.snp.trailing)
                 }
             }else{
-                nameLabel.backgroundColor = .yellow
                 nameLabel.snp.makeConstraints { make in
                     make.top.equalTo(nameLabelArr[i - 1].snp.bottom).offset(10)
                     make.width.equalTo(150)

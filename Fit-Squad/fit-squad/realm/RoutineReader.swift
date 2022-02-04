@@ -9,6 +9,7 @@ import Foundation
 import RealmSwift
 
 class RoutineReader{
+    
     private let realm: Realm
     
     init(){
@@ -16,6 +17,7 @@ class RoutineReader{
     }
     
     public func readRoutine() -> [RoutineInfo]{
+        
         let routines = realm.objects(RoutineRealm.self)
         let routineRealmArray = Array(routines)
         return routineRealmArray.map{DataConvert.shared.jsonToRoutine(routine: $0)}
