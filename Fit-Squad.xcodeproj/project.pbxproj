@@ -18,6 +18,10 @@
 		725FB27027ABE7AE006F4C47 /* HistoryTableDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 725FB26E27ABE7AE006F4C47 /* HistoryTableDelegate.swift */; };
 		725FB27227ABE7E8006F4C47 /* RecordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 725FB27127ABE7E8006F4C47 /* RecordView.swift */; };
 		725FB27727ABE827006F4C47 /* Entity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 725FB27627ABE827006F4C47 /* Entity.swift */; };
+		726B62E127ACFA9C008F2E74 /* RoutineWriter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 726B62E027ACFA9C008F2E74 /* RoutineWriter.swift */; };
+		726B62E527AD0082008F2E74 /* DataConvert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 726B62E427AD0082008F2E74 /* DataConvert.swift */; };
+		726B62E727AD0FC4008F2E74 /* RoutineReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 726B62E627AD0FC4008F2E74 /* RoutineReader.swift */; };
+		726B62EA27AD18B9008F2E74 /* HistoryProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 726B62E927AD18B9008F2E74 /* HistoryProtocols.swift */; };
 		7279E83A27A79514008E814D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7279E83927A79514008E814D /* AppDelegate.swift */; };
 		7279E83E27A79514008E814D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7279E83D27A79514008E814D /* ViewController.swift */; };
 		7279E84327A79516008E814D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7279E84227A79516008E814D /* Assets.xcassets */; };
@@ -41,6 +45,10 @@
 		725FB26E27ABE7AE006F4C47 /* HistoryTableDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HistoryTableDelegate.swift; sourceTree = "<group>"; };
 		725FB27127ABE7E8006F4C47 /* RecordView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecordView.swift; sourceTree = "<group>"; };
 		725FB27627ABE827006F4C47 /* Entity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Entity.swift; sourceTree = "<group>"; };
+		726B62E027ACFA9C008F2E74 /* RoutineWriter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoutineWriter.swift; sourceTree = "<group>"; };
+		726B62E427AD0082008F2E74 /* DataConvert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataConvert.swift; sourceTree = "<group>"; };
+		726B62E627AD0FC4008F2E74 /* RoutineReader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoutineReader.swift; sourceTree = "<group>"; };
+		726B62E927AD18B9008F2E74 /* HistoryProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryProtocols.swift; sourceTree = "<group>"; };
 		7279E83627A79514008E814D /* Fit-Squad.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Fit-Squad.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7279E83927A79514008E814D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7279E83D27A79514008E814D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -84,6 +92,8 @@
 		723FA87627AB6EAE00137A2B /* fit-squad */ = {
 			isa = PBXGroup;
 			children = (
+				726B62E327AD0075008F2E74 /* data_convert */,
+				726B62DF27ACFA7D008F2E74 /* realm */,
 				725FB27527ABE827006F4C47 /* model */,
 				725FB25727ABA87E006F4C47 /* splash */,
 				723FA87927AB6EE100137A2B /* record */,
@@ -96,6 +106,7 @@
 		723FA87727AB6ECA00137A2B /* history */ = {
 			isa = PBXGroup;
 			children = (
+				726B62E827AD18A7008F2E74 /* protocol */,
 				725FB26B27ABE7AE006F4C47 /* cell */,
 				725FB26D27ABE7AE006F4C47 /* delegate */,
 				723FA87E27AB6F1700137A2B /* HistoryViewController.swift */,
@@ -153,6 +164,31 @@
 				725FB27627ABE827006F4C47 /* Entity.swift */,
 			);
 			path = model;
+			sourceTree = "<group>";
+		};
+		726B62DF27ACFA7D008F2E74 /* realm */ = {
+			isa = PBXGroup;
+			children = (
+				726B62E027ACFA9C008F2E74 /* RoutineWriter.swift */,
+				726B62E627AD0FC4008F2E74 /* RoutineReader.swift */,
+			);
+			path = realm;
+			sourceTree = "<group>";
+		};
+		726B62E327AD0075008F2E74 /* data_convert */ = {
+			isa = PBXGroup;
+			children = (
+				726B62E427AD0082008F2E74 /* DataConvert.swift */,
+			);
+			path = data_convert;
+			sourceTree = "<group>";
+		};
+		726B62E827AD18A7008F2E74 /* protocol */ = {
+			isa = PBXGroup;
+			children = (
+				726B62E927AD18B9008F2E74 /* HistoryProtocols.swift */,
+			);
+			path = protocol;
 			sourceTree = "<group>";
 		};
 		7279E82D27A79514008E814D = {
@@ -311,16 +347,20 @@
 			buildActionMask = 2147483647;
 			files = (
 				7279E84F27A7956F008E814D /* BaseView.swift in Sources */,
+				726B62E127ACFA9C008F2E74 /* RoutineWriter.swift in Sources */,
+				726B62E527AD0082008F2E74 /* DataConvert.swift in Sources */,
 				725FB25627ABA832006F4C47 /* HistoryView.swift in Sources */,
 				723FA87D27AB6F0D00137A2B /* RoutineViewController.swift in Sources */,
 				7279E85127A795B2008E814D /* BaseViewController.swift in Sources */,
 				723FA87B27AB6F0100137A2B /* ReCordViewController.swift in Sources */,
 				7279E83E27A79514008E814D /* ViewController.swift in Sources */,
 				723FA87F27AB6F1700137A2B /* HistoryViewController.swift in Sources */,
+				726B62EA27AD18B9008F2E74 /* HistoryProtocols.swift in Sources */,
 				725FB27227ABE7E8006F4C47 /* RecordView.swift in Sources */,
 				7279E83A27A79514008E814D /* AppDelegate.swift in Sources */,
 				725FB25927ABA888006F4C47 /* SplashView.swift in Sources */,
 				725FB27727ABE827006F4C47 /* Entity.swift in Sources */,
+				726B62E727AD0FC4008F2E74 /* RoutineReader.swift in Sources */,
 				725FB25B27ABA8AD006F4C47 /* SplashViewController.swift in Sources */,
 				1EA4693B27ACF5A900C6BEB3 /* RoutineView.swift in Sources */,
 				725FB27027ABE7AE006F4C47 /* HistoryTableDelegate.swift in Sources */,
@@ -466,7 +506,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = LHMNAPQ6N7;
+				DEVELOPMENT_TEAM = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Fit-Squad/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -494,7 +534,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = LHMNAPQ6N7;
+				DEVELOPMENT_TEAM = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Fit-Squad/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
