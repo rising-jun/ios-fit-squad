@@ -44,14 +44,13 @@ extension HistoryViewController{
     
     func setView(){
         view = v
-        
+
         v.tableView.register(HistoryCell.self, forCellReuseIdentifier: "historyCell")
         v.tableView.delegate = historyDelegate
         v.tableView.dataSource = historyDelegate
     }
     
     func setNavigateBar(){
-        
         self.tabBarController!.navigationItem.hidesBackButton = true
         self.tabBarController?.navigationItem.leftBarButtonItem = self.v.setNavigationBarIconView()
     }

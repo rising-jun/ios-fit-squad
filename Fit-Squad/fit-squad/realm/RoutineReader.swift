@@ -21,7 +21,6 @@ class RoutineReader{
         let routines = realm.objects(RoutineRealm.self)
         let routineRealmArray = Array(routines)
         return routineRealmArray.map{DataConvert.shared.jsonToRoutine(routine: $0)}
-        
     }
     
 }
