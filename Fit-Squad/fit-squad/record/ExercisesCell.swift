@@ -8,11 +8,16 @@
 import UIKit
 import SnapKit
 
+protocol ExercisesCellDelegate {
+    func checkBeforeActivate()
+}
+
 class ExercisesCell: UITableViewCell {
 
     static let identifier = "ExerciesesCell"
     private var excercise: ExerciseInfo?
     private var isActivated: Bool = false
+    var delegate: ExercisesCellDelegate?
     
     
     lazy var nameLabel: UILabel = {
@@ -99,25 +104,23 @@ class ExercisesCell: UITableViewCell {
         // 운동 이름, 횟수, 세트, 중량의 레이아웃을 설정
         contentView.addSubview(excerciseStack)
         
-        
-        excerciseStack.snp.makeConstraints { make in
-            make.top.leading.trailing.equalTo(self)
-            make.height.equalTo(100)
-        }
-        
         excerciseStack.addArrangedSubview(nameStack)
         nameStack.addArrangedSubview(nameLabel)
         nameStack.addArrangedSubview(checkbox)
-        
-        checkbox.snp.makeConstraints { make in
-            make.width.lessThanOrEqualTo(50)
-        }
         
         excerciseStack.addArrangedSubview(bottomStack)
         bottomStack.addArrangedSubview(repsLabel)
         bottomStack.addArrangedSubview(setLabel)
         bottomStack.addArrangedSubview(kgLabel)
         
+        excerciseStack.snp.makeConstraints { make in
+            make.top.leading.trailing.equalTo(self)
+            make.height.equalTo(100)
+        }
+        
+        checkbox.snp.makeConstraints { make in
+            make.width.lessThanOrEqualTo(50)
+        }
     }
     
     
@@ -129,11 +132,12 @@ class ExercisesCell: UITableViewCell {
         if isActivated {
             checkbox.isSelected = !checkbox.isSelected
         } else {
-            print("Please start routine first")
+            
+            
+            delegate?.checkBeforeActivate()
         }
     }
     
-
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
     }
